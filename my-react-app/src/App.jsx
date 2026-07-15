@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
@@ -5,118 +6,70 @@ import heroImg from "./assets/hero.png";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-  let text = "get out!";
+  const myStyle = {
+    fontWeight: "bold",
+    color: "green",
+    textTransform: "uppercase"
+  };
+
+  const styles = "green-text";
+
+  let x = 0;
+
+  const head1 = <h1>Hello, World!</h1>;
+  const htmlString = "<h2>Hello, everyone!</h2>";
+
+  const el1 = React.createElement(
+    "h1",
+    {
+      id: 123,
+      style: {
+        color: "green",
+        fontSize: 45,
+        background: "#371313",
+        lineHeight: 1.5
+      }
+    },
+    "Some text"
+  );
+
+  const paragraph = React.createElement("p", {}, "Another text");
+  const block = React.createElement("div", {}, paragraph);
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started, Banderlogu</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code> and{" "}
-            {text}
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      {block}
+      {el1}
+      <h2 id={124} style={{ fontSize: 45, color: "black", background: "gray" }}>
+        Hello, everyone!
+      </h2>
+      {x === 0 && <h2>Hello</h2>}
+      <p style={myStyle}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+        expedita cum maiores at ullam? Placeat impedit at dolorum possimus
+        quibusdam numquam quae fuga sapiente minima quam! Quia quasi distinctio
+        placeat!
+      </p>
+      <p className={styles}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+        expedita cum maiores at ullam? Placeat impedit at dolorum possimus
+        quibusdam numquam quae fuga sapiente minima quam! Quia quasi distinctio
+        placeat!
+      </p>
+      {head1}
+      <form action="">
+        <label htmlFor="html">HTML</label>
+        <br />
+        <input type="checkbox" id="html" />
+        <br />
+        <input type="text" readOnly={true} />
+        <br />
+        <input type="text" readOnly />
+      </form>
+      <ul>
+        <li>{htmlString}</li>
+        <li dangerouslySetInnerHTML={{ __html: htmlString }}></li>
+      </ul>
     </>
   );
 }

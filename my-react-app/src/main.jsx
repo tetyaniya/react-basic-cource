@@ -8,20 +8,3 @@ createRoot(document.getElementById("root")).render(
     <App />
   </StrictMode>
 );
-
-// const root = createRoot(document.getElementById("root"));
-
-// second();
-
-// function second() {
-//   root.render(
-//     <div>
-//       <p>I's </p>
-//       <h2>{new Date().toLocaleTimeString()}</h2>
-//       <p>time</p>
-//       <button onClick={second}>Update</button>
-//     </div>
-//   );
-// }
-
-// setInterval(second, 1000);
